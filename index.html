@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XI TJKT | SMKN 1 Cikaum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: 236 72 153;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #f9a8d4 0%, #fce7f3 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(236 72 153 / 0.25);
+        }
+        
+        .nav-active {
+            color: rgb(236 72 153);
+            border-bottom: 3px solid rgb(236 72 153);
+        }
+        
+        .tail-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .pink-gradient-text {
+            background: linear-gradient(to right, #db2777, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+    <!-- HEADER -->
+    <header class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="tail-container px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl flex items-center justify-center text-white text-3xl shadow-inner">
+                    🎓
+                </div>
+                <div>
+                    <h1 class="font-bold text-2xl tracking-tight pink-gradient-text">XI TJKT</h1>
+                    <p class="text-xs text-pink-600 -mt-1 font-medium">SMKN 1 CIKAUM</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#beranda" onclick="navigateTo('beranda')" class="hover:text-pink-600 transition-colors nav-link">Beranda</a>
+                <a href="#anggota" onclick="navigateTo('anggota')" class="hover:text-pink-600 transition-colors nav-link">Anggota</a>
+                <a href="#galeri" onclick="navigateTo('galeri')" class="hover:text-pink-600 transition-colors nav-link">Galeri</a>
+                <a href="#guru" onclick="navigateTo('guru')" class="hover:text-pink-600 transition-colors nav-link">Guru</a>
+                <a href="#kontak" onclick="navigateTo('kontak')" class="hover:text-pink-600 transition-colors nav-link">Kontak</a>
+            </div>
+            
+            <button onclick="toggleDarkMode()" 
+                    class="w-10 h-10 flex items-center justify-center rounded-2xl bg-gray-100 hover:bg-gray-200 transition-colors">
+                <i id="theme-icon" class="fa-solid fa-sun text-xl text-pink-600"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="beranda" class="hero-bg min-h-screen flex items-center relative">
+        <div class="tail-container px-6 py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-md px-5 py-2 rounded-3xl text-pink-700 text-sm font-medium shadow">
+                    <div class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></div>
+                    TAHUN AJARAN 2025/2026
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl font-bold leading-none tracking-tighter">
+                    KELAS <span class="pink-gradient-text">XI TJKT</span>
+                </h1>
+                
+                <p class="text-2xl md:text-3xl text-pink-700 font-light">
+                    Teknik Jaringan Komputer dan Telekomunikasi
+                </p>
+                
+                <p class="max-w-md text-lg text-gray-600">
+                    Bersama belajar, bersama tumbuh, bersama meraih prestasi terbaik menuju masa depan gemilang.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="navigateTo('anggota')" 
+                            class="px-8 py-4 bg-pink-600 hover:bg-pink-700 text-white rounded-3xl font-semibold flex items-center gap-3 transition-all active:scale-95">
+                        <i class="fa-solid fa-users"></i>
+                        Lihat Anggota
+                    </button>
+                    <button onclick="navigateTo('galeri')" 
+                            class="px-8 py-4 border-2 border-pink-300 hover:border-pink-400 rounded-3xl font-semibold flex items-center gap-3 transition-all active:scale-95">
+                        <i class="fa-solid fa-images"></i>
+                        Galeri
+                    </button>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-6 pt-8">
+                    <div>
+                        <div class="text-4xl font-bold text-pink-600">36</div>
+                        <div class="text-sm text-gray-500">Siswa</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-pink-600">6</div>
+                        <div class="text-sm text-gray-500">Pengurus</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-pink-600">12+</div>
+                        <div class="text-sm text-gray-500">Prestasi</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Visual -->
+            <div class="relative flex justify-center">
+                <div class="w-80 h-80 md:w-96 md:h-96 bg-white rounded-[4rem] shadow-2xl overflow-hidden border-8 border-white">
+                    <img src="https://picsum.photos/id/1015/800/800" alt="Kelas XI TJKT" 
+                         class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Floating badge -->
+                <div class="absolute -top-6 -right-6 bg-white rounded-3xl shadow-xl p-5 text-center">
+                    <div class="text-pink-500 text-4xl mb-1">🌟</div>
+                    <div class="font-bold text-sm">Solid Team</div>
+                    <div class="text-xs text-gray-500">2025/2026</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 hidden md:flex flex-col items-center text-pink-400">
+            <div class="text-xs tracking-widest mb-2">SCROLL</div>
+            <i class="fa-solid fa-chevron-down animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- TENTANG KELAS -->
+    <section class="py-20 bg-white">
+        <div class="tail-container px-6">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <span class="px-4 py-2 bg-pink-100 text-pink-600 rounded-full text-sm font-medium">Tentang Kami</span>
+                <h2 class="text-5xl font-bold mt-6 mb-4">Kelas XI TJKT</h2>
+                <p class="text-gray-600 text-lg">
+                    Jurusan Teknik Jaringan Komputer dan Telekomunikasi SMKN 1 Cikaum yang siap menjadi generasi digital unggul.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-5 gap-6">
+                <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-3xl text-center card-hover border border-pink-100">
+                    <div class="text-5xl mb-4">💡</div>
+                    <div class="font-semibold">Inovatif</div>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-3xl text-center card-hover border border-pink-100">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <div class="font-semibold">Kolaboratif</div>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-3xl text-center card-hover border border-pink-100">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <div class="font-semibold">Berprestasi</div>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-3xl text-center card-hover border border-pink-100">
+                    <div class="text-5xl mb-4">🔒</div>
+                    <div class="font-semibold">Solid</div>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-3xl text-center card-hover border border-pink-100">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <div class="font-semibold">Visioner</div>
+                </div>
+            </div>
+            
+            <div class="mt-16 max-w-3xl mx-auto bg-pink-50 rounded-3xl p-10 text-center">
+                <p class="italic text-lg text-gray-700">
+                    "Kami bukan hanya siswa, kami adalah tim yang saling mendukung untuk meraih mimpi di bidang teknologi jaringan dan telekomunikasi."
+                </p>
+                <div class="mt-6 text-pink-600 font-medium">— Wali Kelas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENGURUS -->
+    <section id="pengurus" class="py-20 bg-gray-50">
+        <div class="tail-container px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Pengurus Kelas</h2>
+            <p class="text-center text-gray-500 mb-12">Pemimpin dan penjaga kelas XI TJKT</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Ketua -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover shadow">
+                    <div class="h-2 bg-gradient-to-r from-pink-400 to-pink-600"></div>
+                    <div class="p-6 text-center">
+                        <div class="w-20 h-20 mx-auto bg-pink-100 rounded-2xl flex items-center justify-center text-4xl font-bold text-pink-600 mb-4">AN</div>
+                        <div class="font-semibold">Azkan Najahla Irawan</div>
+                        <div class="text-pink-600 text-sm mt-1">Ketua Kelas</div>
+                    </div>
+                </div>
+                
+                <!-- Wakil -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover shadow">
+                    <div class="h-2 bg-gradient-to-r from-pink-400 to-pink-600"></div>
+                    <div class="p-6 text-center">
+                        <div class="w-20 h-20 mx-auto bg-pink-100 rounded-2xl flex items-center justify-center text-4xl font-bold text-pink-600 mb-4">GI</div>
+                        <div class="font-semibold">Galih Ikhsan</div>
+                        <div class="text-pink-600 text-sm mt-1">Wakil Ketua</div>
+                    </div>
+                </div>
+                
+                <!-- Bendahara -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover shadow">
+                    <div class="h-2 bg-gradient-to-r from-pink-400 to-pink-600"></div>
+                    <div class="p-6 text-center">
+                        <div class="w-20 h-20 mx-auto bg-pink-100 rounded-2xl flex items-center justify-center text-4xl font-bold text-pink-600 mb-4">MR</div>
+                        <div class="font-semibold">Muhhamad Riski</div>
+                        <div class="text-pink-600 text-sm mt-1">Bendahara</div>
+                    </div>
+                </div>
+                
+                <!-- Sekretaris -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover shadow">
+                    <div class="h-2 bg-gradient-to-r from-pink-400 to-pink-600"></div>
+                    <div class="p-6 text-center">
+                        <div class="w-20 h-20 mx-auto bg-pink-100 rounded-2xl flex items-center justify-center text-4xl font-bold text-pink-600 mb-4">ARI</div>
+                        <div class="font-semibold">Ahmad Riyadul Ilmi</div>
+                        <div class="text-pink-600 text-sm mt-1">Sekretaris</div>
+                    </div>
+                </div>
+                
+                <!-- Keamanan -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover shadow">
+                    <div class="h-2 bg-gradient-to-r from-pink-400 to-pink-600"></div>
+                    <div class="p-6 text-center">
+                        <div class="w-20 h-20 mx-auto bg-pink-100 rounded-2xl flex items-center justify-center text-4xl font-bold text-pink-600 mb-4">RAR</div>
+                        <div class="font-semibold">Rahriel Attar Rahmadhan</div>
+                        <div class="text-pink-600 text-sm mt-1">Keamanan</div>
+                    </div>
+                </div>
+                
+                <!-- Kebersihan -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover shadow">
+                    <div class="h-2 bg-gradient-to-r from-pink-400 to-pink-600"></div>
+                    <div class="p-6 text-center">
+                        <div class="w-20 h-20 mx-auto bg-pink-100 rounded-2xl flex items-center justify-center text-4xl font-bold text-pink-600 mb-4">FF</div>
+                        <div class="font-semibold">Farhan Fadillah</div>
+                        <div class="text-pink-600 text-sm mt-1">Kebersihan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DAFTAR ANGGOTA -->
+    <section id="anggota" class="py-20 bg-white">
+        <div class="tail-container px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                <div>
+                    <h2 class="text-4xl font-bold">Daftar Anggota</h2>
+                    <p class="text-gray-500">Total 36 siswa</p>
+                </div>
+                
+                <div class="relative w-full md:w-80">
+                    <input id="searchInput" 
+                           onkeyup="filterStudents()"
+                           type="text" 
+                           placeholder="Cari nama siswa..." 
+                           class="w-full bg-white border border-gray-200 focus:border-pink-300 rounded-3xl px-6 py-4 text-sm focus:outline-none">
+                    <i class="fa-solid fa-magnifying-glass absolute right-6 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- Filter Tabs -->
+            <div class="flex overflow-x-auto gap-3 pb-6 hide-scrollbar">
+                <button onclick="filterByRole(this)" data-role="all" class="filter-tab active px-6 py-2 bg-pink-600 text-white rounded-3xl text-sm font-medium whitespace-nowrap">Semua</button>
+                <button onclick="filterByRole(this)" data-role="pengurus" class="filter-tab px-6 py-2 bg-white hover:bg-pink-50 border border-gray-200 rounded-3xl text-sm font-medium whitespace-nowrap">Pengurus</button>
+                <button onclick="filterByRole(this)" data-role="anggota" class="filter-tab px-6 py-2 bg-white hover:bg-pink-50 border border-gray-200 rounded-3xl text-sm font-medium whitespace-nowrap">Anggota</button>
+            </div>
+            
+            <div id="studentsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- JS will populate -->
+            </div>
+        </div>
+    </section>
+
+    <!-- WALI KELAS -->
+    <section id="guru" class="py-20 bg-gradient-to-b from-pink-50 to-white">
+        <div class="tail-container px-6 max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12">Wali Kelas</h2>
+            
+            <div class="flex justify-center">
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-white text-7xl shadow-2xl border-8 border-white">
+                        E
+                    </div>
+                    <div class="mt-8">
+                        <div class="text-2xl font-semibold">Ibu Eka Kunuswati, S.Pd.</div>
+                        <div class="text-pink-600">Wali Kelas XI TJKT</div>
+                    </div>
+                    <div class="mt-10 text-sm max-w-xs mx-auto text-gray-600">
+                        Guru yang penuh semangat membimbing kami menuju kesuksesan di dunia teknologi.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="tail-container px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Galeri Kelas</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <img src="https://picsum.photos/id/1015/600/400" class="rounded-3xl aspect-video object-cover hover:scale-105 transition-transform cursor-pointer" alt="Kegiatan">
+                <img src="https://picsum.photos/id/201/600/400" class="rounded-3xl aspect-video object-cover hover:scale-105 transition-transform cursor-pointer" alt="Kegiatan">
+                <img src="https://picsum.photos/id/251/600/400" class="rounded-3xl aspect-video object-cover hover:scale-105 transition-transform cursor-pointer" alt="Kegiatan">
+                <img src="https://picsum.photos/id/301/600/400" class="rounded-3xl aspect-video object-cover hover:scale-105 transition-transform cursor-pointer" alt="Kegiatan">
+                <img src="https://picsum.photos/id/870/600/400" class="rounded-3xl aspect-video object-cover hover:scale-105 transition-transform cursor-pointer" alt="Kegiatan">
+                <img src="https://picsum.photos/id/1016/600/400" class="rounded-3xl aspect-video object-cover hover:scale-105 transition-transform cursor-pointer" alt="Kegiatan">
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="py-20 bg-gray-900 text-white">
+        <div class="tail-container px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl font-bold mb-8">Hubungi Kami</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-5">
+                            <i class="fa-solid fa-school text-3xl text-pink-400 mt-1"></i>
+                            <div>
+                                <div class="font-medium">SMKN 1 Cikaum</div>
+                                <div class="text-gray-400 text-sm">Jl. Raya Cikaum, Kab. Subang, Jawa Barat</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <i class="fa-solid fa-envelope text-3xl text-pink-400 mt-1"></i>
+                            <div>
+                                <div class="font-medium">xi.tjkt@smkn1cikaum.sch.id</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <i class="fa-solid fa-whatsapp text-3xl text-pink-400 mt-1"></i>
+                            <div>
+                                <div class="font-medium">Group WA Kelas</div>
+                                <a href="#" class="text-pink-400 hover:underline">Gabung Group →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-6 mt-12">
+                        <a href="#" class="text-4xl hover:text-pink-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-4xl hover:text-pink-400 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8">
+                    <form onsubmit="submitForm(event)" class="space-y-6">
+                        <input type="text" placeholder="Nama Lengkap" 
+                               class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-5 focus:outline-none focus:border-pink-400 placeholder:text-white/50">
+                        <input type="email" placeholder="Email" 
+                               class="w-full bg-white/10 border border-white/30 rounded-2xl px-6 py-5 focus:outline-none focus:border-pink-400 placeholder:text-white/50">
+                        <textarea placeholder="Pesan untuk kelas..." rows="5"
+                                  class="w-full bg-white/10 border border-white/30 rounded-3xl px-6 py-5 focus:outline-none focus:border-pink-400 placeholder:text-white/50"></textarea>
+                        <button type="submit"
+                                class="w-full bg-pink-600 hover:bg-pink-700 py-6 rounded-3xl font-semibold transition-colors">
+                            KIRIM PESAN
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-12 border-t">
+        <div class="tail-container px-6 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl flex items-center justify-center text-white">🎓</div>
+                <span class="font-bold text-xl pink-gradient-text">XI TJKT</span>
+            </div>
+            <p class="text-gray-400 text-sm">© 2025 SMKN 1 Cikaum - Kelas XI Teknik Jaringan Komputer dan Telekomunikasi</p>
+            <p class="text-xs text-gray-400 mt-2">Made with ❤️ for the best class ever</p>
+        </div>
+    </footer>
+
+    <!-- BOTTOM NAV (Mobile) -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden z-50">
+        <div class="grid grid-cols-5 text-center text-xs py-2">
+            <a href="#beranda" onclick="navigateTo('beranda')" class="flex flex-col items-center py-1 text-pink-600">
+                <i class="fa-solid fa-house text-xl"></i>
+                <span class="mt-1">Home</span>
+            </a>
+            <a href="#anggota" onclick="navigateTo('anggota')" class="flex flex-col items-center py-1 text-gray-500 hover:text-pink-600">
+                <i class="fa-solid fa-users text-xl"></i>
+                <span class="mt-1">Anggota</span>
+            </a>
+            <a href="#galeri" onclick="navigateTo('galeri')" class="flex flex-col items-center py-1 text-gray-500 hover:text-pink-600">
+                <i class="fa-solid fa-images text-xl"></i>
+                <span class="mt-1">Galeri</span>
+            </a>
+            <a href="#guru" onclick="navigateTo('guru')" class="flex flex-col items-center py-1 text-gray-500 hover:text-pink-600">
+                <i class="fa-solid fa-chalkboard-user text-xl"></i>
+                <span class="mt-1">Guru</span>
+            </a>
+            <a href="#kontak" onclick="navigateTo('kontak')" class="flex flex-col items-center py-1 text-gray-500 hover:text-pink-600">
+                <i class="fa-solid fa-envelope text-xl"></i>
+                <span class="mt-1">Kontak</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        // Tailwind script
+        function initTailwind() {
+            // Already using CDN
+        }
+        
+        // Sample students data
+        let students = [
+            { name: "Azkan Najahla Irawan", role: "pengurus", initial: "AN" },
+            { name: "Galih Ikhsan", role: "pengurus", initial: "GI" },
+            { name: "Muhhamad Riski", role: "pengurus", initial: "MR" },
+            { name: "Ahmad Riyadul Ilmi", role: "pengurus", initial: "ARI" },
+            { name: "Rahriel Attar Rahmadhan", role: "pengurus", initial: "RAR" },
+            { name: "Farhan Fadillah", role: "pengurus", initial: "FF" },
+            { name: "Sinta Permata Sari", role: "anggota", initial: "SPS" },
+            { name: "Dimas Pratama", role: "anggota", initial: "DP" },
+            { name: "Nabila Zahra", role: "anggota", initial: "NZ" },
+            { name: "Reza Aditya", role: "anggota", initial: "RA" },
+            { name: "Putri Amelia", role: "anggota", initial: "PA" },
+            { name: "Fikri Ramadhan", role: "anggota", initial: "FR" },
+        ];
+        
+        function renderStudents(filteredStudents) {
+            const container = document.getElementById('studentsGrid');
+            container.innerHTML = '';
+            
+            filteredStudents.forEach(student => {
+                const div = document.createElement('div');
+                div.className = `bg-white rounded-3xl p-6 card-hover shadow text-center border border-transparent hover:border-pink-200`;
+                div.innerHTML = `
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pink-400 to-pink-600 text-white rounded-2xl flex items-center justify-center text-3xl font-bold shadow-inner mb-5">
+                        ${student.initial}
+                    </div>
+                    <div class="font-semibold text-sm">${student.name}</div>
+                    <div class="text-pink-500 text-xs mt-1 uppercase tracking-wider">${student.role}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+        
+        function filterStudents() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            const filtered = students.filter(student => 
+                student.name.toLowerCase().includes(query)
+            );
+            
+            renderStudents(filtered);
+        }
+        
+        function filterByRole(btn) {
+            // Reset active states
+            document.querySelectorAll('.filter-tab').forEach(b => {
+                b.classList.remove('active', 'bg-pink-600', 'text-white');
+                b.classList.add('bg-white', 'border', 'border-gray-200');
+            });
+            
+            btn.classList.add('active', 'bg-pink-600', 'text-white');
+            
+            const role = btn.getAttribute('data-role');
+            
+            let filtered;
+            
+            if (role === 'all') {
+                filtered = students;
+            } else if (role === 'pengurus') {
+                filtered = students.filter(s => s.role === 'pengurus');
+            } else {
+                filtered = students.filter(s => s.role === 'anggota');
+            }
+            
+            renderStudents(filtered);
+        }
+        
+        // Form submit
+        function submitForm(e) {
+            e.preventDefault();
+            alert("Pesan terkirim! Terima kasih telah menghubungi kami 💕");
+            e.target.reset();
+        }
+        
+        // Dark mode
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
+            } else {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-icon').classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+        
+        // Navigation
+        function navigateTo(section) {
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Initialize
+        window.onload = function() {
+            // Render students
+            renderStudents(students);
+            
+            // Tailwind already active via CDN
+            console.log('%cWebsite XI TJKT SMKN 1 Cikaum siap! 🎉', 'color: #db2777; font-family: Poppins; font-size: 14px');
+        };
+        
+        // Keyboard shortcut
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "/" && document.getElementById('searchInput')) {
+                document.getElementById('searchInput').focus();
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
+```
